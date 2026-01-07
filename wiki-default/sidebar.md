@@ -2,6 +2,7 @@
 
 - [Concepts](concepts.md)
 - [Stages](stages.md)
+- [Line numbering](line-numbering.md)
 
 ## Support
 

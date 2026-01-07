@@ -213,6 +213,61 @@ Advanced tool for manually marking or unmarking dropout areas that the automatic
   - Default: `[]` (empty)
   - Required: No
 
+## Mask Line
+
+Blacks out specific field lines in your video. This is useful for removing visible VBI (Vertical Blanking Interval) data like timecode, closed captions, or teletext that you don't want to appear in your final video output.
+
+**How it works:** The stage replaces specified lines with a solid color at your chosen IRE level (usually black at 0 IRE). You can mask different lines on first and second fields, and the masking happens in the processing pipeline so later stages see the masked output.
+
+**⚠️ IMPORTANT WARNING:** If you mask lines that observers need (like line 20 for NTSC closed captions, or lines 10-20 for other VBI data), those observers will stop working because the data they need will be gone. If you want to extract closed captions, VITC timecode, or other metadata, do NOT mask those lines. Place observer stages (like Closed Caption Sink) before the Mask Line stage in your pipeline, or don't mask the lines they need.
+
+### When to use this
+- Remove visible VBI lines (timecode, teletext, etc.) from final video
+- Hide closed caption data (line 20/21) that shows as white dots on some displays
+- Clean up the top and bottom of video frames
+- Remove test signals or other unwanted line data
+
+### When NOT to use this
+- If you need to extract closed captions - masking line 20 will prevent caption extraction
+- If you're using VITC timecode - don't mask lines 6-22
+- If you need any VBI metadata - observers read from the stage output and won't see masked lines
+
+### Parameters
+
+Use the **Config Tool** button (easier) or enter line ranges manually:
+
+- **Field Ranges**
+  - Specify which lines to mask using format: `F:start-end,start-end;S:start-end`
+  - `F:` = first field, `S:` = second field
+  - Line numbers are 0-based (line 21 in specs = line 20 in this format)
+  - Examples:
+    - `F:20` - Mask NTSC closed caption line (first field only)
+    - `F:10-20,S:10-20` - Mask NTSC VBI area (both fields)
+    - `F:20-21,S:20-21` - Mask PAL teletext/WSS (both fields)
+  - Default: `""` (no masking)
+  - Required: No
+
+- **IRE Level**
+  - The brightness level to use for masked lines. 0 = black (recommended). Higher values make masked lines gray instead of black.
+  - Range: 0.0 (black) to 110.0 (white)
+  - Default: `0.0` (black)
+  - Required: No
+
+### Using the Config Dialog
+
+Click the **Config Tool** button to use the easy preset dialog:
+
+**NTSC Presets:**
+- **None** - No masking (pass through)
+- **Closed Captions** - Masks line 20 (first field only) to hide CC data
+- **VBI Area** - Masks lines 10-20 on both fields to remove all visible VBI
+
+**Custom Ranges:**
+- Add your own line ranges for first and second fields
+- Useful for masking specific test signals or other data
+
+**⚠️ Remember:** If you enable CC or VBI masking, observers won't be able to extract that data!
+
 ## Video Parameters
 
 Advanced controls for overriding video timing and geometry parameters. Normally these are detected automatically from your TBC file, but sometimes they're wrong or need adjustment for special processing needs.
