@@ -68,8 +68,6 @@ Observers:
 * Operate statelessly - all context comes from the video field and observation history
 
 Implemented observers include:
-* **Field parity observers**: Determine field parity (odd/even) using ld-decode's algorithm with fallback to previous field
-* **PAL phase observers**: Detect PAL phase information (requires field parity)
 * **Biphase observers**: Decode biphase-encoded data from VBI lines
 * **VITC observers**: Extract VITC (Vertical Interval Timecode) information
 * **Closed caption observers**: Extract closed caption data from line 21
