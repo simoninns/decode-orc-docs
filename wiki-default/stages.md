@@ -405,7 +405,121 @@ Exports your processed video to uncompressed RGB, YUV, or Y4M format. These file
 
 ## FFmpeg Video Sink
 
-Exports your video to compressed formats like MP4 (H.264) or MKV (FFV1). Produces much smaller files than Raw Video Sink and can include audio and closed captions. Perfect for final delivery or sharing.
+Exports your video to compressed formats with support for ~40 different codecs and containers. Much smaller files than Raw Video Sink with optional audio and closed captions. Perfect for final delivery, archival, professional editing, or web streaming.
+
+**Requires FFmpeg libraries to be installed.**
+
+### Quick Start: Use the Config Tool!
+
+Click the **Config Tool** button to access the preset dialog - it's much easier than setting parameters manually! The dialog provides:
+
+- **Organized Categories**: Lossless/Archive, Professional/ProRes, Uncompressed, Broadcast, Universal (H.264), Modern (H.265/AV1), Hardware Accelerated
+- **Preset Profiles**: Based on the legacy tbc-video-export tool with detailed descriptions
+- **Hardware Detection**: Automatically finds NVIDIA NVENC, Intel QuickSync, AMD AMF, Apple VideoToolbox encoders
+- **Guided Configuration**: Each preset explains when to use it and what settings it applies
+
+**Popular Presets:**
+- **FFV1 Lossless (MKV)** - Perfect for archival, mathematically lossless, large files
+- **ProRes 422 HQ** - Professional editing workflows (Final Cut Pro, DaVinci Resolve, Premiere)
+- **H.264 High Quality** - Universal playback on all devices, excellent quality/size balance
+- **H.265/HEVC** - 50% better compression than H.264, requires modern players
+- **AV1** - Modern codec for web delivery, best compression
+- **Hardware Accelerated** - Use your GPU for much faster encoding
+
+### Supported Formats
+
+**Lossless/Archive:**
+- `mkv-ffv1` - FFV1 lossless compression
+- `mp4-h264_lossless`, `mp4-hevc_lossless`, `mp4-av1_lossless` - Lossless variants
+
+**Professional/ProRes:**
+- `mov-prores` - ProRes 422 HQ (standard)
+- `mov-prores_4444`, `mov-prores_4444xq` - ProRes with alpha/highest quality
+- `mov-prores_videotoolbox` - Apple hardware accelerated
+
+**Uncompressed:**
+- `mov-v210` - 10-bit 4:2:2 uncompressed (massive files, zero loss)
+- `mov-v410` - 10-bit 4:4:4 uncompressed (even larger)
+
+**Broadcast:**
+- `mxf-mpeg2video` - D10/IMX/XDCAM for broadcast delivery
+
+**Universal (H.264):**
+- `mp4-h264` - Standard H.264 in MP4
+- `mov-h264` - H.264 in QuickTime MOV
+- Hardware: `mp4-h264_vaapi`, `mp4-h264_nvenc`, `mp4-h264_qsv`, `mp4-h264_amf`, `mp4-h264_videotoolbox`
+
+**Modern (H.265/HEVC):**
+- `mp4-hevc`, `mov-hevc` - Better compression than H.264
+- Hardware: `mp4-hevc_vaapi`, `mp4-hevc_nvenc`, `mp4-hevc_qsv`, `mp4-hevc_amf`, `mp4-hevc_videotoolbox`
+
+**AV1:**
+- `mp4-av1` - Modern royalty-free codec, best compression
+
+### Parameters
+
+Includes all parameters from Raw Video Sink, plus these encoding options:
+
+- **Output Path**
+  - Where to save your video file.
+  - File Extensions: `.mp4`, `.mkv`, `.mov`, `.mxf`
+  - Required: No
+
+- **Decoder Type**
+  - Same as Raw Video Sink - which chroma decoder to use.
+  - Required: No
+
+- **Output Format**
+  - Choose your container and codec. **USE THE CONFIG TOOL** instead of selecting manually! The preset dialog makes this much easier.
+  - See "Supported Formats" above for the full list of ~40 options.
+  - Required: No
+
+- **Encoder Preset**
+  - Speed vs quality tradeoff. "Fast" = quick encoding, slightly larger files. "Slow" or "Veryslow" = slower encoding, smaller files, better quality. "Medium" is a good balance.
+  - Options: fast, medium (recommended), slow, veryslow
+  - Required: No
+
+- **Encoder CRF**
+  - Quality level: lower = better quality but bigger file. 18 = visually lossless (recommended for archival). 23 = high quality. 28 = smaller file, some visible quality loss. Set to 0 to use bitrate instead.
+  - Range: 0-51 (0 = auto from preset)
+  - Default: `18` (visually lossless)
+  - Required: No
+
+- **Encoder Bitrate**
+  - Target bitrate in bits/sec. 0 = use CRF mode (recommended for most users). Only set this if you have specific delivery requirements that demand a fixed bitrate.
+  - Range: 0-500000000 (0 = use CRF)
+  - Default: `0` (CRF mode)
+  - Required: No
+
+- **Embed Audio**
+  - Include analogue audio tracks in the output file (if audio is available in your source). Audio codec is automatically selected based on video codec: AAC for H.264/H.265/AV1, FLAC for FFV1, PCM for ProRes/V210/V410/D10.
+  - Default: `false` (no audio)
+  - Required: No
+
+- **Embed Closed Captions**
+  - Convert EIA-608 closed captions to subtitle track (MP4/MOV only). Captions are converted to mov_text format that video players can display.
+  - Default: `false` (no captions)
+  - Required: No
+
+Plus all the color/quality parameters from Raw Video Sink (Chroma Gain, Chroma Phase, Luma NR, Chroma NR, etc.)
+
+### Audio Codecs (Auto-Selected)
+
+The appropriate audio codec is automatically chosen based on your video format:
+- **AAC** (320 Kbps, 48kHz) - H.264, H.265, AV1
+- **FLAC** (lossless) - FFV1
+- **PCM S24LE** (uncompressed 24-bit) - ProRes, V210, V410, D10
+
+### Hardware Acceleration
+
+**Supported Hardware Encoders:**
+- **NVIDIA NVENC** - Fast H.264/H.265 encoding on NVIDIA GPUs
+- **Intel QuickSync** - Fast encoding on Intel CPUs with integrated graphics
+- **AMD AMF** - Fast encoding on AMD GPUs
+- **Apple VideoToolbox** - Hardware acceleration on macOS (M1/M2/M3 and recent Intel Macs)
+- **VA-API** - Linux hardware acceleration (Intel/AMD)
+
+Use the Config Tool dialog to automatically detect and configure hardware encoders!
 
 **Requires FFmpeg libraries to be installed.**
 
