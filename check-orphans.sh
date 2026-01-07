@@ -50,6 +50,7 @@ while IFS= read -r -d '' md_file; do
     # Skip special files
     if [[ "$rel_path" == "sidebar.md" ]] || \
        [[ "$rel_path" == "footer.md" ]] || \
+       [[ "$rel_path" == "index.md" ]] || \
        [[ "$rel_path" == _* ]] || \
        [[ "$rel_path" == */_* ]]; then
         continue
