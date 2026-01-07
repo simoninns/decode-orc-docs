@@ -1,5 +1,3 @@
-- [Home](index.md)
-
 ## Overview
 
 - [Concepts](concepts.md)
