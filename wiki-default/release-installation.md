@@ -2,16 +2,6 @@
 
 This guide covers how to install **Decode Orc** on Windows, macOS, and Linux systems.
 
-## Table of Contents
-
-- [Windows Installation](#windows-installation)
-- [macOS Installation](#macos-installation)
-- [Linux Installation (Flatpak)](#linux-installation-flatpak)
-- [System Requirements](#system-requirements)
-- [Troubleshooting](#troubleshooting)
-
----
-
 ## Windows Installation
 
 ### Download
