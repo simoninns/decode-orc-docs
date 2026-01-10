@@ -2,6 +2,83 @@
 
 This guide covers how to install **Decode Orc** on Windows, macOS, and Linux systems.
 
+## Linux Installation (Flatpak)
+
+### Prerequisites
+
+Flatpak must be installed on your system. If you don't have it:
+
+**Ubuntu/Debian:**
+```bash
+sudo apt install flatpak
+```
+
+**Fedora:**
+```bash
+sudo dnf install flatpak
+```
+
+**Arch Linux:**
+```bash
+sudo pacman -S flatpak
+```
+
+### Download
+
+1. Go to the [latest release page](https://github.com/simoninns/decode-orc/releases/latest)
+2. Download the file named `decode-orc-X.X.X.flatpak` (where X.X.X is the version number)
+
+### Installation Steps
+
+1. **Install the Flatpak bundle**
+   ```bash
+   flatpak install --user decode-orc-X.X.X.flatpak
+   ```
+   
+   Replace `X.X.X` with your downloaded version number.
+
+2. **Grant necessary permissions (if needed)**
+   
+   If you need access to specific directories:
+   ```bash
+   flatpak override --user --filesystem=home io.github.simoninns.decode-orc
+   ```
+
+### Running the Application
+
+**Graphical Interface:**
+- Look for "Orc GUI" in your application menu (under AudioVideo category)
+- Or run from terminal:
+  ```bash
+  flatpak run io.github.simoninns.decode-orc
+  ```
+
+**Command Line Interface:**
+```bash
+flatpak run --command=orc-cli io.github.simoninns.decode-orc
+```
+
+### Creating Shell Aliases (Optional)
+
+For easier command-line access, add these aliases to your `~/.bashrc` or `~/.zshrc`:
+
+```bash
+alias orc-gui='flatpak run io.github.simoninns.decode-orc'
+alias orc-cli='flatpak run --command=orc-cli io.github.simoninns.decode-orc'
+```
+
+After adding these, run `source ~/.bashrc` (or `~/.zshrc`) to apply the changes.
+
+### Uninstallation
+
+To remove Decode Orc:
+
+```bash
+flatpak uninstall io.github.simoninns.decode-orc
+```
+
+---
+
 ## Windows Installation
 
 ### Download
@@ -93,83 +170,6 @@ To remove Decode Orc from your system:
 
 ---
 
-## Linux Installation (Flatpak)
-
-### Prerequisites
-
-Flatpak must be installed on your system. If you don't have it:
-
-**Ubuntu/Debian:**
-```bash
-sudo apt install flatpak
-```
-
-**Fedora:**
-```bash
-sudo dnf install flatpak
-```
-
-**Arch Linux:**
-```bash
-sudo pacman -S flatpak
-```
-
-### Download
-
-1. Go to the [latest release page](https://github.com/simoninns/decode-orc/releases/latest)
-2. Download the file named `decode-orc-X.X.X.flatpak` (where X.X.X is the version number)
-
-### Installation Steps
-
-1. **Install the Flatpak bundle**
-   ```bash
-   flatpak install --user decode-orc-X.X.X.flatpak
-   ```
-   
-   Replace `X.X.X` with your downloaded version number.
-
-2. **Grant necessary permissions (if needed)**
-   
-   If you need access to specific directories:
-   ```bash
-   flatpak override --user --filesystem=home io.github.simoninns.decode-orc
-   ```
-
-### Running the Application
-
-**Graphical Interface:**
-- Look for "Decode Orc" in your application menu
-- Or run from terminal:
-  ```bash
-  flatpak run io.github.simoninns.decode-orc
-  ```
-
-**Command Line Interface:**
-```bash
-flatpak run --command=orc-cli io.github.simoninns.decode-orc
-```
-
-### Creating Shell Aliases (Optional)
-
-For easier command-line access, add these aliases to your `~/.bashrc` or `~/.zshrc`:
-
-```bash
-alias orc-gui='flatpak run io.github.simoninns.decode-orc'
-alias orc-cli='flatpak run --command=orc-cli io.github.simoninns.decode-orc'
-```
-
-After adding these, run `source ~/.bashrc` (or `~/.zshrc`) to apply the changes.
-
-### Uninstallation
-
-To remove Decode Orc:
-
-```bash
-flatpak uninstall io.github.simoninns.decode-orc
-```
-
----
-
 ## System Requirements
 
 ### All Platforms
@@ -193,86 +193,6 @@ flatpak uninstall io.github.simoninns.decode-orc
 - **Flatpak:** Version 1.12 or later
 - **Graphics:** OpenGL 3.3 or later support
 - **Desktop Environment:** Any modern Linux desktop environment (GNOME, KDE, XFCE, etc.)
-
----
-
-## Troubleshooting
-
-### Windows
-
-**Problem:** "Windows protected your PC" message appears
-
-**Solution:** 
-- Click "More info"
-- Click "Run anyway"
-- This is expected for unsigned applications
-
-**Problem:** Application won't start or shows missing DLL errors
-
-**Solution:**
-- Ensure you've extracted all files from the ZIP archive
-- Install the latest [Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe)
-
-### macOS
-
-**Problem:** "App is damaged and can't be opened" error
-
-**Solution:**
-- This typically happens if you didn't use "Right-click > Open" for the first launch
-- Open Terminal and run:
-  ```bash
-  xattr -cr /Applications/orc-gui.app
-  ```
-- Then try "Right-click > Open" again
-
-**Problem:** CLI tool not found after installation
-
-**Solution:**
-- Make sure you ran the "Install CLI Tool" script from the DMG
-- Check that `/usr/local/bin` is in your PATH:
-  ```bash
-  echo $PATH | grep "/usr/local/bin"
-  ```
-- If not found, add it to your `~/.zshrc` or `~/.bash_profile`:
-  ```bash
-  export PATH="/usr/local/bin:$PATH"
-  ```
-
-### Linux (Flatpak)
-
-**Problem:** Application won't start or crashes
-
-**Solution:**
-- Update Flatpak runtime:
-  ```bash
-  flatpak update
-  ```
-- Check Flatpak version compatibility:
-  ```bash
-  flatpak --version
-  ```
-
-**Problem:** Can't access files in certain directories
-
-**Solution:**
-- Grant filesystem access:
-  ```bash
-  flatpak override --user --filesystem=/path/to/directory io.github.simoninns.decode-orc
-  ```
-- Or use Flatseal (graphical permissions manager):
-  ```bash
-  flatpak install flatseal
-  flatpak run com.github.tchx84.Flatseal
-  ```
-
-**Problem:** Command not found when using aliases
-
-**Solution:**
-- Ensure you've reloaded your shell configuration:
-  ```bash
-  source ~/.bashrc  # or ~/.zshrc
-  ```
-- Or open a new terminal window
 
 ---
 
