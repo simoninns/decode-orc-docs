@@ -9,6 +9,11 @@
 - [Release installation](release-installation.md)
 - [Source installation](source-installation.md)
 
+## Project
+
+- [Project GitHub](https://github.com/simoninns/decode-orc)
+- [Documentation GitHub](https://github.com/simoninns/decode-orc-docs)
+- [Technical Documentation](https://simoninns.github.io/decode-orc/)
 
 ## Support
 
