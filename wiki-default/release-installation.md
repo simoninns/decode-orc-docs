@@ -2,6 +2,10 @@
 
 This guide covers how to install **Decode Orc** on Windows, macOS, and Linux systems.
 
+The Decode Orc project provides ready-to-install packages for Linux (flatpak), Windows (MSI installer) and Mac OS (DMG).
+
+The release packages can be found in the [release section](https://github.com/simoninns/decode-orc/releases) of the Github repository.
+
 ## Linux Installation (Flatpak)
 
 ### Prerequisites

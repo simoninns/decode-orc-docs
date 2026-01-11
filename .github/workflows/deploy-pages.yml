@@ -41,8 +41,12 @@ jobs:
           fi
           
           # Extract all markdown links from sidebar.md and check for external URLs
-          # Allowlist specific external links (project GitHub)
-          ALLOWLIST=("https://github.com/simoninns/decode-orc")
+          # Allowlist project links
+          ALLOWLIST=(
+            "https://github.com/simoninns/decode-orc"
+            "https://github.com/simoninns/decode-orc-docs"
+            "https://simoninns.github.io/decode-orc/"
+          )
           
           # Find external links and extract just the URL (remove ]( prefix and ) suffix)
           EXTERNAL_LINKS=$(grep -oE '\]\(https?://[^)]+\)' wiki-default/sidebar.md | cut -c3- | sed 's/)$//' || true)
