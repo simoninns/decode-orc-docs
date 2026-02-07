@@ -22,23 +22,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
         with:
-          python-version: '3.x'
+          nix_path: nixpkgs=channel:nixos-unstable
 
-      - name: Install dependencies
+      - name: Enable Nix flakes
         run: |
-          pip install -r requirements.txt
+          mkdir -p ~/.config/nix
+          echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 
-      - name: Build MkDocs site
+      - name: Build site with Nix
         run: |
-          mkdocs build
+          nix build --print-build-logs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./site
+          path: ./result
 
   deploy:
     environment:
