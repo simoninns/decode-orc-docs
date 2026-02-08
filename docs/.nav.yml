@@ -1,9 +1,5 @@
 nav:
   - index.md
-  - concepts.md
-  - stages.md
-  - line-numbering.md
-  - Installation: installation
-  - Guides: guides
+  - Decode Orc: decode-orc
   - Encode Orc: encode-orc
-  - community.md
+  - Miscellaneous: misc

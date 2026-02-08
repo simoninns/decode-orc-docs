@@ -1,31 +1,26 @@
-# Decode Orc
+# Home
 
-## Introduction
+Welcome to the decode-orc documentation.  Here you will find information about decode-orc and the encode-orc sub-project.
 
-**decode-orc** is a cross-platform orchestration and processing framework for LaserDisc and tape decoding workflows.
+![](assets/decode-orc_logotype-1024x286.png)
 
-![](./assets/decode-orc_logotype-1024x286.png)
+# What is decode-orc?
 
-It aims to brings structure and consistency to complex decoding processes, making them easier to run, repeat, and understand.
+decode-orc is both a graphical (GUI) environment and a CLI tool for the orchestration of complex video decoding tasks.  It allows the user to control the overall flow and effect of the decoding process using intuitive tools that provide powerful configuration and control whilst also being repeatable and deterministic.
 
-`decode-orc` is a direct replacement for the existing ld-decode-tools, coordinating each step of the process and keeping track of inputs, outputs, and results.
+![](assets/orc-gui-screenshot.png)
 
-The project aims to:
-- Make advanced LaserDisc and tape workflows (from TBC to chroma) easier to manage
-- Reduce manual steps and error-prone command sequences
-- Help users reproduce the same results over time
+# Development status
 
-Both a graphical interface (orc-gui) and command-line interface (orc-cli) are implemented for orchestrating workflows.  These commands contain minimal business logic and, instead, rely on the same orc-core following a MVP architecture (Model–View–Presenter) wherever possible.
+decode-orc is a new replacement for the ld-decode-tools, so it is relatively new.  You might find issues and even bugs.  You can help out by reporting those issue to the project or even by assisting with the development of decode-orc.  You will find information about how to do this (as well as information about how to contact the developers) under the miscellaneous section of the documentation.
 
-## Credits
+# Further information
 
-Decode Orc was designed and written by Simon Inns.  Decode Orc's development heavily relied on the original GPLv3 ld-decode-tools which contained many contributions from others.
+This documentation aims to provide both user-level and technical-level documentation.  If you spot a mistake and would like to report a documentation issue or you would like to contribute to the documentation please see the decode-orc-documentation github repository:
 
-- Simon Inns (2018-2025) - Extensive work across all tools
-- Adam Sampson (2019-2023) - Significant contributions to core libraries, chroma decoder and tools
-- Chad Page (2014-2018) - Filter implementations and original NTSC comb filter
-- Ryan Holtz (2022) - Metadata handling
-- Phillip Blucas (2023) - VideoID decoding
-- ...and others (see the original ld-decode-tools source)
+[decode-orc-documentation GitHub repository](https://github.com/simoninns/decode-orc-docs){target="_blank"}
 
-It should be noted that the original code for the observers is also based heavily on the ld-decode python code-base (written by Chad Page et al).
+decode-orc is not a standalone application - it is designed to be used with ld-decode and the (ever expanding) decoder variations such as VHS Decode.  You can find information about ld-decode from the project's documentation site:
+
+[ld-decode documentation](https://happycube.github.io/ld-decode-docs/){target="_blank"}
+
