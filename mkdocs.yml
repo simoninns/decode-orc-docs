@@ -6,6 +6,7 @@ repo_name: simoninns/decode-orc
 theme:
   name: material
   logo: assets/decode-orc-logotype.svg
+  favicon: favicon/favicon.ico
   palette:
     # Light mode
     - scheme: default
