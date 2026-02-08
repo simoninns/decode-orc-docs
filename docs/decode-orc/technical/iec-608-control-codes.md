@@ -1,6 +1,6 @@
-# ANSI/CTA-608-E — Tables 49–53 (Markdown)
+# Closed Captions
 
-Source: ANSI/CTA-608-E (Annex F, FCC Rules Excerpts) :contentReference[oaicite:0]{index=0}
+Source: ANSI/CTA-608-E (Annex F, FCC Rules Excerpts)
 
 ---
 

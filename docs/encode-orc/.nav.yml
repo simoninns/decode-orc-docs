@@ -1,6 +1,4 @@
 nav:
   - index.md
-  - user-guide
-  - technical
-  - VITS-Guide
-  - testcards
+  - User Guide: user-guide
+  - Technical Reference: technical
