@@ -2,6 +2,8 @@
 
 encode-orc is a PAL and NTSC video encoder that generates synthetic test data in TBC (Time Base Corrected) format. It simulates the output of RF decoding applications like ld-decode and vhs-decode, allowing you to create reproducible test cases for video decoding pipelines without requiring physical hardware or RF captures.
 
+Important Note: encode-orc is a test tool.  It is not required for general use of decode-orc.
+
 ## Core Workflow
 
 1. **Define project** - Create a YAML configuration file specifying your video parameters
