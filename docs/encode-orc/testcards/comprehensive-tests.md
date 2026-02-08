@@ -10,6 +10,7 @@ All test files are located in the `test-projects/` directory.
 Tests PAL composite output with CAV (Constant Angular Velocity) LaserDisc mode.
 
 **Features tested:**
+
 - PAL composite format output
 - CAV picture numbering with auto-increment
 - Biphase VBI encoding on lines 16-18, 328-330
@@ -30,6 +31,7 @@ Tests PAL composite output with CAV (Constant Angular Velocity) LaserDisc mode.
 Tests PAL composite output with CLV (Constant Linear Velocity) LaserDisc mode.
 
 **Features tested:**
+
 - PAL composite format output
 - CLV timecode with auto-increment (starts at 00:00:00.00)
 - Biphase VBI timecode encoding on lines 16-18, 328-330
@@ -49,6 +51,7 @@ Tests PAL composite output with CLV (Constant Linear Velocity) LaserDisc mode.
 Tests PAL Y/C (S-Video) output with VITC timecode.
 
 **Features tested:**
+
 - PAL Y/C (separate luma/chroma) format output
 - VITC encoding on lines 19, 20, 331, 332
 - VITC timecode with auto-increment (starts at 00:00:00.00)
@@ -64,6 +67,7 @@ Tests PAL Y/C (S-Video) output with VITC timecode.
 Tests NTSC composite output with CAV LaserDisc mode.
 
 **Features tested:**
+
 - NTSC composite format output
 - CAV picture numbering with auto-increment
 - Biphase VBI encoding on lines 16-18, 278-280
@@ -84,6 +88,7 @@ Tests NTSC composite output with CAV LaserDisc mode.
 Tests NTSC composite output with CLV LaserDisc mode.
 
 **Features tested:**
+
 - NTSC composite format output
 - CLV timecode with auto-increment (starts at 00:00:00.00)
 - Biphase VBI timecode encoding on lines 16-18, 278-280
@@ -103,6 +108,7 @@ Tests NTSC composite output with CLV LaserDisc mode.
 Tests NTSC Y/C output with VITC timecode.
 
 **Features tested:**
+
 - NTSC Y/C (separate luma/chroma) format output
 - VITC encoding on lines 14, 19, 276, 281
 - VITC timecode with auto-increment (starts at 00:00:00.00)
@@ -131,65 +137,65 @@ cd /home/sdi/Coding/encode-orc/build
 ## Feature Coverage Summary
 
 ### Output Formats
-- ✅ PAL composite
-- ✅ NTSC composite
-- ✅ PAL Y/C
-- ✅ NTSC Y/C
-- ✅ TBC writer
-- ✅ PCM sound format
+- PAL composite
+- NTSC composite
+- PAL Y/C
+- NTSC Y/C
+- TBC writer
+- PCM sound format
 
 ### LaserDisc Modes
-- ✅ CAV with picture numbering
-- ✅ CLV with timecode
-- ✅ Lead-in/lead-out areas
-- ✅ User codes
-- ✅ Chapter markers
-- ✅ Picture stop codes
-- ✅ Standard spec
-- ✅ Amendment-2 spec
+- CAV with picture numbering
+- CLV with timecode
+- Lead-in/lead-out areas
+- User codes
+- Chapter markers
+- Picture stop codes
+- Standard spec
+- Amendment-2 spec
 
 ### Metadata Generators
-- ✅ Color burst
-- ✅ Biphase VBI (picture-number format)
-- ✅ Biphase VBI (timecode format)
-- ✅ VITC timecode
-- ✅ VITS-PAL (multiburst, uk-national, itu-combination, itu-composite)
-- ✅ VITS-NTSC (ntc7-composite, ntc7-combination, vir, multiburst)
+- Color burst
+- Biphase VBI (picture-number format)
+- Biphase VBI (timecode format)
+- VITC timecode
+- VITS-PAL (multiburst, uk-national, itu-combination, itu-composite)
+- VITS-NTSC (ntc7-composite, ntc7-combination, vir, multiburst)
 
 ### Preprocessing
-- ✅ Chroma filter enabled
-- ✅ Chroma filter disabled
-- ✅ Luma filter enabled
-- ✅ Luma filter disabled
+- Chroma filter enabled
+- Chroma filter disabled
+- Luma filter enabled
+- Luma filter disabled
 
 ### Effects
-- ✅ Noise effect with various SNR levels
-- ✅ Dropout effect with various densities
-- ✅ Random seeds for reproducibility
-- ✅ Multi-field and single-field dropout probabilities
+- Noise effect with various SNR levels
+- Dropout effect with various densities
+- Random seeds for reproducibility
+- Multi-field and single-field dropout probabilities
 
 ### Audio Generation
-- ✅ Silence
-- ✅ Sine wave (constant frequency)
-- ✅ Sine wave (frequency sweep)
-- ✅ Square wave
-- ✅ Sawtooth wave
-- ✅ Pink noise
-- ✅ White noise
-- ✅ Brown noise
-- ✅ Audio amplitude control (0-100%)
-- ✅ Audio balance control (-100 to +100)
-- ✅ Random seeds for noise
+- Silence
+- Sine wave (constant frequency)
+- Sine wave (frequency sweep)
+- Square wave
+- Sawtooth wave
+- Pink noise
+- White noise
+- Brown noise
+- Audio amplitude control (0-100%)
+- Audio balance control (-100 to +100)
+- Random seeds for noise
 
 ### Source Types
-- ✅ YUV422 raw images (all tests use this to minimize dependencies)
+- YUV422 raw images (all tests use this to minimize dependencies)
 
 ### Timecode/Numbering
-- ✅ Auto-increment picture numbers across sections
-- ✅ Auto-increment timecode across sections
-- ✅ Chapter changes without reset
-- ✅ Custom timecode start values
-- ✅ Custom picture number start values
+- Auto-increment picture numbers across sections
+- Auto-increment timecode across sections
+- Chapter changes without reset
+- Custom timecode start values
+- Custom picture number start values
 
 ## Test Design Philosophy
 

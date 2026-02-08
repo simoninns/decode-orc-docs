@@ -66,7 +66,6 @@ Cb  = -0.168736·R - 0.331264·G + 0.5·B
 Cr  = 0.5·R - 0.418688·G - 0.081312·B
 ```
 Where R, G, B are normalized to 0.0–1.0, then scaled to studio range.   512       64        512
-```
 
 ### Chroma Subsampling
 4:2:2 subsampling means:

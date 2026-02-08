@@ -1,15 +1,6 @@
 # Testcards
 
-Documentation and usage notes for the included testcard image assets.
-
-## Pages
-
-- [PNG Testcard Images](png-testcard-images.md)
-- [Raw Testcard Images](raw-testcard-images.md)
-- [Virtual Test Discs](virtual-test-discs.md)
-- [Comprehensive Tests](comprehensive-tests.md)
-
-## Testcard File Structure
+Testcard assets are used by encode-orc when encoding TBC video and a variety of input formats are supported.
 
 The testcard assets live under `testcard-images/` in the repository:
 
