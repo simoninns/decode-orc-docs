@@ -6,7 +6,7 @@ Before using **decode-orc**, it is helpful to understand a small number of core 
 
 ---
 
-## 1. Directed Acyclic Graph (DAG)
+## Directed Acyclic Graph (DAG)
 
 At the highest level, a decode-orc decoding pipeline is represented as a **Directed Acyclic Graph (DAG)**.
 
@@ -34,7 +34,7 @@ You can think of the DAG as a **blueprint** for how decoding will happen before 
 
 ---
 
-## 2. Stages
+## Stages
 
 A **stage** is the basic unit of work in decode-orc.
 
@@ -54,9 +54,9 @@ The orchestration system uses this information to execute the DAG correctly.
 
 ---
 
-## 3. Types of Stages
+## Types of Stages
 
-### 3.1 Source Stages
+### Source Stages
 
 **Source stages** introduce data into the pipeline.
 
@@ -76,7 +76,7 @@ If you imagine the pipeline as a factory, source stages are the **raw material l
 
 ---
 
-### 3.2 Transform Stages
+### Transform Stages
 
 **Transform stages** take input data, process it, and emit new data.
 
@@ -99,7 +99,7 @@ These stages form the **core processing chain** of the pipeline.
 
 ---
 
-### 3.3 Sink Stages
+### Sink Stages
 
 **Sink stages** consume data and produce final outputs.
 
@@ -119,7 +119,7 @@ Sink stages mark the **end points** of the DAG.
 
 ---
 
-### 3.4 Analysis Sink Stages
+### Analysis Sink Stages
 
 **Analysis sink stages** are a special type of sink used for *analysis and evaluation of decode quality*.
 
@@ -153,7 +153,7 @@ Their purpose is to provide **objective insight into the quality of the decoding
 
 ---
 
-## 4. Hints
+## Hints
 
 In decode-orc, **hints** are pieces of information that are *ingested by source stages* and made available to the rest of the pipeline.
 
@@ -231,7 +231,7 @@ Observers answer:
 
 ---
 
-## 5. Observers
+## Observers
 
 In decode-orc, **observers** are used to *inspect data flowing through the pipeline* without changing the meaning of the decode.
 
@@ -300,7 +300,7 @@ All without altering the decode pipeline itself.
 
 ---
 
-## 6. How These Concepts Fit Together
+## How These Concepts Fit Together
 
 A typical decode-orc workflow looks like this:
 
@@ -315,7 +315,7 @@ A typical decode-orc workflow looks like this:
 
 ---
 
-## 7. A Simple Mental Model
+## A Simple Mental Model
 
 Think of decode-orc as:
 
