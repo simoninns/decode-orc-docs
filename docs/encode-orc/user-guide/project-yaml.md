@@ -2,6 +2,8 @@
 
 encode-orc uses YAML files to define encoding projects. This document describes all available configuration options.
 
+See [Installation and Asset Setup](installation.md) for information on how to install encode-orc and configure environment variables.
+
 ---
 
 ## Path Resolution
@@ -28,6 +30,18 @@ encode-orc uses YAML files to define encoding projects. This document describes 
    file: "${PROJECT_ROOT}/resources/image.png"
    ```
 
+4. **${ENCODE_ORC_ASSETS} variable** expands to the installed assets directory
+   ```yaml
+   # Access system-installed testcard images (via Nix installation)
+   file: "${ENCODE_ORC_ASSETS}/pal-raw/625_50_75_BARS.raw"
+   ```
+
+5. **${ENCODE_ORC_OUTPUT_ROOT} variable** expands to the output root directory
+   ```yaml
+   # Control output location via environment variable
+   filename: "${ENCODE_ORC_OUTPUT_ROOT}/video"
+   ```
+
 ### Examples
 
 ```yaml
@@ -52,6 +66,53 @@ sections:
     source:
       file: "resources/testcard.raw"  # Resolves to: /home/user/projects/my-project/resources/testcard.raw
 ```
+
+---
+
+## Environment Variables
+
+`encode-orc` supports environment variables to control asset and output locations in your YAML projects. See [Installation and Asset Setup](installation.md) for how to configure these variables based on your installation method.
+
+### ENCODE_ORC_ASSETS
+
+Controls the location of installed testcard images and assets. Use this variable in your YAML to reference system-installed or custom asset locations.
+
+**Usage in YAML:**
+```yaml
+sections:
+  - name: "Content"
+    source:
+      file: "${ENCODE_ORC_ASSETS}/pal-raw/625_50_75_BARS.raw"
+```
+
+**Variable expansion:**
+- If the environment variable is set, it expands to that path
+- If not set, defaults to `../assets` relative to the YAML file's directory
+
+This allows the same YAML project to work with:
+- Nix system-wide installations (`/nix/store/.../share/encode-orc/assets`)
+- Local development setups (`./assets`)
+- Custom asset locations
+
+###  ENCODE_ORC_OUTPUT_ROOT
+
+Controls the root directory where output files are written. Use this variable to specify a custom output location separate from your YAML project.
+
+**Usage in YAML:**
+```yaml
+output:
+  filename: "${ENCODE_ORC_OUTPUT_ROOT}/my-video"
+  format: "pal-composite"
+```
+
+**Variable expansion:**
+- If the environment variable is set, it expands to that path
+- If not set, defaults based on the YAML file's location:
+  - `test-projects/` directory → `test-output/`
+  - `ggv-tests/` directory → `ggv-output/`
+  - Other locations → `output/` (sibling of parent directory)
+
+This makes it easy to redirect all output to a specific location without modifying YAML files.
 
 ---
 

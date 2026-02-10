@@ -1,4 +1,4 @@
-# Closed Captions
+# IEC608 Closed Caption Control codes
 
 Source: ANSI/CTA-608-E (Annex F, FCC Rules Excerpts)
 

@@ -1,5 +1,6 @@
 nav:
   - overview.md
+  - installation.md
   - project-yaml.md
   - cli.md
   - input-formats.md
