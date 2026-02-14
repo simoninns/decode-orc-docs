@@ -1,4 +1,4 @@
-## Discord
+# Discord
 
 There is an active Discord server of which most current development and usage of the project is discussed:
 

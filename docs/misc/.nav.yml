@@ -1,5 +1,6 @@
 title: Miscellaneous
 nav:
+  - migration.md
   - issue-reporting.md
   - community.md
 
