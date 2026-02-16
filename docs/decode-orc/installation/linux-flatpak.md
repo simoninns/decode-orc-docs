@@ -39,4 +39,5 @@ alias orc-cli='flatpak run --command=orc-cli io.github.simoninns.decode-orc'
 ## Uninstall
 
 ```bash
-flatpak uninstall --user io.github.simoninns.decod
+flatpak uninstall --user io.github.simoninns.decode-orc
+```
