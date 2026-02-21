@@ -9,11 +9,16 @@ It aims to brings structure and consistency to complex decoding processes, makin
 `decode-orc` is a direct replacement for the existing ld-decode-tools, coordinating each step of the process and keeping track of inputs, outputs, and results.
 
 The project aims to:
+
 - Make advanced LaserDisc and tape workflows (from TBC to chroma) easier to manage
 - Reduce manual steps and error-prone command sequences
 - Help users reproduce the same results over time
 
 Both a graphical interface (orc-gui) and command-line interface (orc-cli) are implemented for orchestrating workflows.  These commands contain minimal business logic and, instead, rely on the same orc-core following a MVP architecture (Model–View–Presenter) wherever possible.
+
+## Installation
+
+Decode-Orc is available as a pre-built installation package for Windows (MSI), MacOS (DMG) and Linux (Flatpak).  For installation instructions please see the installation section of this document.
 
 ## Credits
 
