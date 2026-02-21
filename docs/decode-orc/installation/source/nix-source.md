@@ -1,4 +1,4 @@
-# Compiling from source
+# Compiling from source using Nix (Linux and Mac)
 
 The project requires [Nix](https://nixos.org/) for deterministic, reproducible builds.  You must install nix in order to build from source.
 
