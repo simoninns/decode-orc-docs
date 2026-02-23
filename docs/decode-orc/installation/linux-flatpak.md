@@ -14,6 +14,12 @@
 flatpak install --user -y /path/to/Decode-Orc-<version>-linux.flatpak
 ```
 
+Note: If you receive an error about a missing KDE runtime you may need to use the following command before installing the Decode-Orc flatpak (ensure the version number matches with the runtime requested by Decode-Orc):
+
+```bash
+flatpak install flathub org.kde.Platform//6.9
+```
+
 ## Run the app
 
 Launch the GUI:
