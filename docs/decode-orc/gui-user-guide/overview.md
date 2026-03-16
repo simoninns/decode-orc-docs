@@ -99,9 +99,9 @@ These stages form the **core processing chain** of the pipeline.
 
 ---
 
-### Sink Stages
+### Sink (Core) Stages
 
-**Sink stages** consume data and produce final outputs.
+**Sink (Core) stages** consume data and produce final outputs targeted to the associated ld-decode/vhs-decode project tools.
 
 #### Characteristics
 
@@ -119,9 +119,9 @@ Sink stages mark the **end points** of the DAG.
 
 ---
 
-### Analysis Sink Stages
+### Sink (Analysis) Stages
 
-**Analysis sink stages** are a special type of sink used for *analysis and evaluation of decode quality*.
+**Sink (Analysis) stages** are a special type of sink used for *analysis and evaluation of decode quality*.
 
 In decode-orc, transform stages may improve or degrade the quality of the data as it flows through the DAG.  Because of this, it is important to be able to measure and analyse the data **at multiple points across the pipeline**, not only at the final output.
 
@@ -150,6 +150,12 @@ Analysis sink stages exist to support this requirement.
 You can add or remove analysis sink stages without changing the meaning or correctness of the decode pipeline.
 
 Their purpose is to provide **objective insight into the quality of the decoding process**, rather than to assist with debugging or development.
+
+---
+
+### Sink (3rd Party) Stages
+
+**Sink (3rd Party) stages** are identical in purpose to Sink (Core) Stages except they target tools external to the ld-decode/vhs-decode projects.
 
 ---
 
