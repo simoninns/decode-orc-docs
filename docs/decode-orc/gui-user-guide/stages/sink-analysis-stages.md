@@ -1,4 +1,4 @@
-# Analysis sink stages
+# Sink (Analysis) Stages
 
 Analysis sink stages are **terminal stages** that generate diagnostics, metrics, and reports rather than producing media or hardware output. They consume processed data from upstream stages and emit **analysis results** intended for comparison, validation, or debugging.
 

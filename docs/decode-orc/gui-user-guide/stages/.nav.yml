@@ -2,5 +2,7 @@ nav:
   - overview.md
   - source-stages.md
   - transform-stages.md
-  - analysis-sink-stages.md
-  - sink-stages.md
+  - sink-core-stages.md
+  - sink-analysis-stages.md
+  - sink-thirdparty-stages.md
+  
