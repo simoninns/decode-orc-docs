@@ -10,6 +10,8 @@ decode-orc is both a graphical (GUI) environment and a CLI tool for the orchestr
 
 ![](assets/orc-gui-screenshot.png)
 
+Note that there are differences between the older versions of ld-decode and vhs-decode and the ld-decode-tool chain which can cause minor incompatibility issues with Decode-Orc.  If your dual-source TBCs don't have right file extensions or you get warnings about legacy JSON metadata - please see the [section on migration from legacy tools](misc/migration.md)
+
 # Development status
 
 decode-orc is a new replacement for the ld-decode-tools, so it is relatively new.  You might find issues and even bugs.  You can help out by reporting those issue to the project or even by assisting with the development of decode-orc.  You will find information about how to do this (as well as information about how to contact the developers) under the miscellaneous section of the documentation.
