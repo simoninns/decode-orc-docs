@@ -10,6 +10,8 @@ Source stages do not improve or modify the signal. Their purpose is to:
 * Validate the video system (PAL or NTSC)
 * Keep video, audio, and disc data synchronised
 
+Note that all metadata is expected in SQLite format (with .tbc.db).  Legacy JSON metadata is accepted with a warning, but lacks the newer fields that Decode-Orc expects.
+
 ### Composite vs Y/C Sources
 
 * **Composite sources** are used for LaserDisc and other formats where luminance and chrominance are combined in a single signal.
